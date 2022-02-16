@@ -4,9 +4,18 @@
   "controllerPathGlobs": ["src/api/controllers/**/*Controller.ts"],
   "spec": {
     "outputDirectory": "dist/api",
-    "specVersion": 3
+    "specVersion": 3,
+    "securityDefinitions": {
+      "jwt": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "JWT token that is obtained by using the /auth/login endpoint"
+      }
+    }
   },
   "routes": {
-    "routesDir": "./src/api"
+    "routesDir": "./src/api",
+    "authenticationModule": "./src/api/authentication.ts"
   }
 }
